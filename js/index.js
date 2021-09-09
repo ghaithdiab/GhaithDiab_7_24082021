@@ -1,6 +1,7 @@
 import recipes from "./recipes.js";
 import filterIngredients from "./filterIngredients.js";
-import filterAppareils from "./filterappareils.js";
+import filterAppareils from "./filterAppareils.js";
+import filterUstensiles from "./filterUstensiles.js";
 import functionalityDropdownMenu from "./functionalityDropdownMenu.js";
 
 
@@ -27,3 +28,14 @@ uniqeAppareil.forEach(element=>{
   createLink.innerText=element;
   appareilDiv.appendChild(createLink);
 });
+/* creat link for each Ustensiles and append it to dropdown menu*/
+
+const ustensileslDiv=document.querySelector('.ustensiles');
+const uniqeUstensiles=filterUstensiles();
+uniqeUstensiles.forEach(element=>{
+  const createLink=document.createElement("a");
+  createLink.setAttribute("class","dropdown-item");
+  createLink.setAttribute("href","#");
+  createLink.innerText=element;
+  ustensileslDiv.appendChild(createLink);
+})

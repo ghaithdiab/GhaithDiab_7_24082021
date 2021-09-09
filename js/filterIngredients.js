@@ -1,9 +1,14 @@
 import recipes from "./recipes.js";
 
+/*
+*filter ingredients from recipes 
+*
+*@return {Array}
+*/
 const filterIngredients =()=>{
   /* array contain all ingredients from recipes */
   const ingredients=new Array();
-  /* array contain uniqe value of ingredients  (value with out reapt) */
+  /* array contain uniqe value of ingredients  (values with out reapt) */
   const uniqeIngredients=new Array();
   /* put all ingredients for each recipe in our array(ingredients) */
   recipes.forEach(element=>{
