@@ -127,7 +127,7 @@ form{
 .dropdown-menu .btn-ingredient{
   width: calc(100% /3);
 }
-.ingredient{
+.ingredient ,.appareil,.ustensiles{
   display: flex;
   flex-wrap: wrap;
   /* background-color: #3282F7; */
@@ -135,8 +135,14 @@ form{
 .dropdown-item{
   color: #fff;
   width: calc(100% / 3);
+  overflow:hidden;
+  text-overflow: ellipsis;
 }
 .dropdown-item:hover{
+  background-color: transparent;
+  color: #fff;
+}
+.dropdown-item:focus{
   background-color: transparent;
   color: #fff;
 }
