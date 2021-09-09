@@ -1,6 +1,15 @@
-// const dropdow=document.querySelector(".btn-ingredient");
-// const menu=document.querySelector(".dropdown-menu");
+import recipes from "./recipes.js";
+import functionalityDropdownMenu from "./functionalityDropdownMenu.js";
 
-// dropdow.addEventListener("click",()=>{
-//   menu.style.top="-55 !important";
+
+functionalityDropdownMenu();
+
+// const ingredientsDiv=document.querySelector('.ingredient');
+// const uniqeIngredients=filterIngredients();
+// uniqeIngredients.forEach(element=>{
+//   const createLink=document.createElement("a");
+//   createLink.setAttribute("class","dropdown-item");
+//   createLink.setAttribute("href","#");
+//   createLink.innerText=element;
+//   ingredientsDiv.appendChild(createLink);
 // });

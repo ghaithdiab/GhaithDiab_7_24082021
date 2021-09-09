@@ -83,6 +83,12 @@ form{
 .ingredient-input::placeholder{
   color: #eee;
 }
+.show{
+  display: block  !important;
+}
+.show-btn{
+  display: none;
+}
 .ingredient-input:focus{
   background-color: #3282F7 !important;
   border-color: #3282F7  !important;
@@ -103,12 +109,13 @@ form{
   margin-right: 10px;
   margin-left: 15px;
 }
-.dropdown-menu{
+.dropdown-content{
+  display: none;
   background-color: #3282F7;
-  position: absolute !important;
-  top: -55px !important;
-  left: -1px !important;
   width: 667px;
+  max-height: 397px;
+  overflow: scroll;
+  border-radius: 5px;
 }
 .dropdown-menu .btn-ingredient{
   width: calc(100% /3);
@@ -116,6 +123,7 @@ form{
 .ingredient{
   display: flex;
   flex-wrap: wrap;
+  /* background-color: #3282F7; */
 }
 .dropdown-item{
   color: #fff;
