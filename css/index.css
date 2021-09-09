@@ -111,12 +111,19 @@ form{
 }
 .dropdown-content{
   display: none;
-  background-color: #3282F7;
+  background-color: #3282F7 ;
   width: 667px;
   max-height: 397px;
   overflow: scroll;
+  overflow-x: hidden;
   border-radius: 5px;
+  scrollbar-width: 5px;
+  scrollbar-color: transparent transparent;
 }
+::-webkit-scrollbar{
+  width: 10px;
+}
+
 .dropdown-menu .btn-ingredient{
   width: calc(100% /3);
 }
