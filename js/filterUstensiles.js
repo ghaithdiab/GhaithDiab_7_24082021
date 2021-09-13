@@ -1,4 +1,3 @@
-import filterAppareils from "./filterAppareils.js";
 import recipes from "./recipes.js";
 
 /*

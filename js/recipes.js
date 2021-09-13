@@ -20,11 +20,11 @@ const recipes = [
           },
           {
               "ingredient" : "Sucre",
-              "quantite" : 30,
+              "quantity" : 30,
               "unit" : "grammes"
           },
           {
-              "ingredient": "Glaçons"
+             "ingredient": "Glaçons"
           }
       ],
       "time": 10,
@@ -52,7 +52,7 @@ const recipes = [
           },
           {
               "ingredient" : "Carotte",
-              "quantite" : 1
+              "quantity" : 1
           },
           {
               "ingredient" : "Citron Vert",

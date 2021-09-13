@@ -188,3 +188,66 @@ form{
 .menu-ustensiles{
   background-color: #ED6454;
 }
+/* Cart Style */
+
+.cart{
+  height: 364px;
+  margin-top: 100px;
+}
+.photo{
+  width: 100%;
+  height: 50%;
+  background-color: #C7BEBE;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.info{
+  height: 250px;
+  background-color: #E7E7E7;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius:5px ;
+}
+.info-recipe{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.info-recipe h6{
+  font-size: 18px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%;
+}
+.info-desc{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+.ingredients-recipes{
+  display: flex;
+  flex-direction: column;
+}
+.ingredients-recipes span{
+  font-size: 12px;
+  font-weight: 700;
+}
+.desc{
+  width: 50%;
+  height: 109px;
+  margin: 0;
+}
+.desc p{
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 110px;
+  display: block;
+}
+.nmb-min{
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+}

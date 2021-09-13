@@ -1,6 +1,5 @@
-import recipes from "./recipes.js";
 import filterIngredients from "./filterIngredients.js";
-import filterAppareils from "./filterAppareils.js";
+import filterAppareils from "./filterAppareil.js";
 import filterUstensiles from "./filterUstensiles.js";
 import functionalityDropdownMenu from "./functionalityDropdownMenu.js";
 
@@ -38,4 +37,7 @@ uniqeUstensiles.forEach(element=>{
   createLink.setAttribute("href","#");
   createLink.innerText=element;
   ustensileslDiv.appendChild(createLink);
-})
+});
+
+const searchInput=document.querySelector(".form-control");
+searchInput.addEventListener("keyup", searchRecipes);
