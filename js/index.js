@@ -8,17 +8,7 @@ import recipes from "./recipes.js";
 
 
 functionalityDropdownMenu();
-/* creat link for each ingredient and append it to dropdown menu*/
-const ingredientsDiv=document.querySelector('.ingredient');
-const uniqeIngredients=filterIngredients();
-
-uniqeIngredients.forEach(element=>{
-  const createLink=document.createElement("a");
-  createLink.setAttribute("class","dropdown-item");
-  createLink.setAttribute("href","#");
-  createLink.innerText=element;
-  ingredientsDiv.appendChild(createLink);
-});
+filterIngredients();
 /* creat link for each appareils and append it to dropdown menu*/
 
 const appareilDiv=document.querySelector('.appareil');
@@ -45,4 +35,5 @@ cartsBuilder(recipes);
 const searchInput=document.getElementById("searchBar");
 searchInput.addEventListener("keyup",()=>{
   searchRecipes(searchInput.value);
+  filterIngredients();
 });

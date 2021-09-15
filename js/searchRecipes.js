@@ -15,6 +15,6 @@ const searchRecipes=(txtSearchBar)=>{
   }else{
     cartsBuilder(recipes);
   }
-
+  return searchResult;
 }
 export default searchRecipes;
