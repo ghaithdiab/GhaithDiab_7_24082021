@@ -10,21 +10,12 @@ import recipes from "./recipes.js";
 functionalityDropdownMenu();
 filterIngredients();
 filterAppareils();
-/* creat link for each Ustensiles and append it to dropdown menu*/
-
-const ustensileslDiv=document.querySelector('.ustensiles');
-const uniqeUstensiles=filterUstensiles();
-uniqeUstensiles.forEach(element=>{
-  const createLink=document.createElement("a");
-  createLink.setAttribute("class","dropdown-item");
-  createLink.setAttribute("href","#");
-  createLink.innerText=element;
-  ustensileslDiv.appendChild(createLink);
-});
+filterUstensiles();
 cartsBuilder(recipes);
 const searchInput=document.getElementById("searchBar");
 searchInput.addEventListener("keyup",()=>{
   searchRecipes(searchInput.value);
   filterIngredients();
   filterAppareils();
+  filterUstensiles();
 });
