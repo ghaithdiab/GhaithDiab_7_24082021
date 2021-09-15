@@ -3,7 +3,7 @@ import searchRecipes from "./searchRecipes.js";
 /*
 *filter ingredients from recipes 
 *
-*@return {Array}
+*@return {void}
 */
 const filterIngredients =()=>{
   /* array contain all ingredients from recipes */

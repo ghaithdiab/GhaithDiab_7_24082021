@@ -1,26 +1,42 @@
 import recipes from "./recipes.js";
+import searchRecipes from "./searchRecipes.js";
 
 /*
 * filter appareils from recipes 
 *
-* @return {Array}  
+* @return {void}  
 */
 const filterAppareils=()=>{
   /* array contain all appareils from recipes */
   const appareils=new Array();
    /* array contain uniqe value of appareils  (values with out reapt) */
   const uniqeAppareils=new Array();
-/* put all appareils for each recipe in our array(appareils) */
+/* if the user donsn't enter any word for search or charecter less from 3
+   get all appareils of recipes and push to appareils array */
+const searchInput=document.getElementById("searchBar");
+if((searchInput.value).length<3){
   recipes.forEach(element=>{
     appareils.push(element.appliance);
   });
+  /* else get appareils from recipes of search result and push to appareils*/
+}else{
+  const searchResult=searchRecipes(searchInput.value);
+  searchResult.forEach(element=>{
+    appareils.push((element.appliance).toLowerCase());
+  })
+}
   /* filter appareils and push to array uniqeAppareils */
   appareils.forEach(ele=>{
     if(!uniqeAppareils.includes(ele)){
       uniqeAppareils.push(ele);
     }
   });
-  return uniqeAppareils;
+    /* create link of dropdown item  */ 
+  let appareilsHTML="";
+  uniqeAppareils.forEach(element=>{
+    appareilsHTML+=`<a href="#" class="dropdown-item">${element}`
+  });
+  document.querySelector(".appareil").innerHTML=appareilsHTML;
 }
 
 export default filterAppareils;
