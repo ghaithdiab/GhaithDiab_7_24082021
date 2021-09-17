@@ -1,5 +1,6 @@
 import recipes from "./recipes.js";
 import searchRecipes from "./searchRecipes.js";
+import filterDropdown from "./searchInDropdown.js";
 /*
 * filter Ustensiles from recipes 
 *
@@ -39,9 +40,16 @@ const filterUstensiles=()=>{
     /* create link of dropdown item  */ 
   let ustensilesHTML="";
   uniqeUstensiles.forEach(element=>{
-    ustensilesHTML+=`<a href="#" class="dropdown-item">${element}</a>`
+    ustensilesHTML+=`<a href="#" class="dropdown-item ustensiles-item">${element}</a>`
   });
   document.querySelector(".ustensiles").innerHTML=ustensilesHTML;
+
+    /* search in input of ustensiles */ 
+    const input =document.querySelector(".ustensiles-input");
+    const dropdownItems=document.querySelectorAll(".ustensiles-item");
+    input.addEventListener("keyup",()=>{
+    filterDropdown(input.value,dropdownItems);
+  });
 }
 
 

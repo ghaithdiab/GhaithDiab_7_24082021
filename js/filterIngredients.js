@@ -1,5 +1,6 @@
 import recipes from "./recipes.js";
 import searchRecipes from "./searchRecipes.js";
+import filterDropdown from "./searchInDropdown.js";
 /*
 *filter ingredients from recipes 
 *
@@ -40,10 +41,17 @@ const filterIngredients =()=>{
   /* create link of dropdown item  */ 
   let ingredientHTML="";
   uniqeIngredients.forEach(element=>{
-    ingredientHTML+=`<a href="#" class="dropdown-item">${element}</a>`
+    ingredientHTML+=`<a href="#" class="dropdown-item item-ingredients">${element}</a>`
   });
   const div=  document.querySelector(".ingredient");
   div.innerHTML=ingredientHTML;
+
+/* search in input of ingredient */ 
+  const input =document.querySelector(".ingredient-input");
+  const dropdownItems=document.querySelectorAll(".item-ingredients");
+  input.addEventListener("keyup",()=>{
+  filterDropdown(input.value,dropdownItems);
+});
 }
 
 export default filterIngredients;

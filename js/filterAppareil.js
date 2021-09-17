@@ -1,5 +1,6 @@
 import recipes from "./recipes.js";
 import searchRecipes from "./searchRecipes.js";
+import filterDropdown from "./searchInDropdown.js";
 
 /*
 * filter appareils from recipes 
@@ -34,9 +35,16 @@ if((searchInput.value).length<3){
     /* create link of dropdown item  */ 
   let appareilsHTML="";
   uniqeAppareils.forEach(element=>{
-    appareilsHTML+=`<a href="#" class="dropdown-item">${element}`
+    appareilsHTML+=`<a href="#" class="dropdown-item appareil-items">${element}`
   });
   document.querySelector(".appareil").innerHTML=appareilsHTML;
+
+  /* search in input of Appareil */ 
+  const input =document.querySelector(".appareil-input");
+  const dropdownItems=document.querySelectorAll(".appareil-items");
+  input.addEventListener("keyup",()=>{
+  filterDropdown(input.value,dropdownItems);
+});
 }
 
 export default filterAppareils;
