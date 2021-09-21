@@ -2,7 +2,7 @@ import recipes from "./recipes.js";
 import cartsBuilder from "./cartsBuilder.js";
 const searchRecipes=(txtSearchBar)=>{
   txtSearchBar=txtSearchBar.toLowerCase();
-  const searchResult=new Array();
+  const searchResult=[];
   if(txtSearchBar.length >= 3){
     recipes.forEach(element=>{
       if(element.name.toLowerCase().includes(txtSearchBar)
