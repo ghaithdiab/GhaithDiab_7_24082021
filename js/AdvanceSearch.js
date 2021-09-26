@@ -49,6 +49,7 @@ const advanceSearch=(ele)=>{
 
             filterIngredients(resultSearchAdvance);
             filterAppareils(resultSearchAdvance);
+            filterUstensiles(resultSearchAdvance);
             cartsBuilder(resultSearchAdvance);
         }
     });
