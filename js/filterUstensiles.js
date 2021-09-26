@@ -1,50 +1,52 @@
-import recipes from "./recipes.js";
-import searchRecipes from "./searchRecipes.js";
 import filterDropdown from "./searchInDropdown.js";
+import advanceSearch from "./AdvanceSearch.js";
 /*
-* filter Ustensiles from recipes 
+/*
+* filter Ustensiles from array or recipes or result of search 
 *
-* @return {void}  
+* Cearte dropdown item 
+*
+* call function search advance on event click (dropdown item)
+* 
+* call function search inside dropdown 
+*
+*@param{Array} recipes or result of search as an array 
+*
+*@return {void}
 */
-const filterUstensiles=()=>{
+const filterUstensiles=(array)=>{
   /* array contain all Ustensiles from recipes */
+
   const ustensiles=new Array();
+
   /* array contain uniqe value of Ustensiles  (values with out reapt) */
   const uniqeUstensiles=new Array();
-  /* if the user donsn't enter any word for search or charecter less from 3
-   get all Ustensiles of recipes and push to ustensiles array */
-  const searchInput=document.getElementById("searchBar");
-  if((searchInput.value).length<3){
-    recipes.forEach(element=>{
-      const allUstensiles=element.ustensils;
-      allUstensiles.forEach(ele=>{
-        ustensiles.push(ele);
-      });
-    });
-  /* else get ustensiles from recipes of search result and push to ustensiles*/
-  }else{
-    const searchResult=searchRecipes(searchInput.value);
-    searchResult.forEach(element=>{
-      const allUstensiles=element.ustensils;
-      allUstensiles.forEach(ele=>{
-        ustensiles.push((ele).toLowerCase());
-      })
-    })
-  }
-  /* filter Ustensiles and push to array uniqeUstensiles */
-  ustensiles.forEach(element=>{
-    if(!uniqeUstensiles.includes(element)){
-      uniqeUstensiles.push(element);
-    }
-  });
-    /* create link of dropdown item  */ 
-  let ustensilesHTML="";
-  uniqeUstensiles.forEach(element=>{
-    ustensilesHTML+=`<a href="#" class="dropdown-item ustensiles-item">${element}</a>`
-  });
-  document.querySelector(".ustensiles").innerHTML=ustensilesHTML;
 
-    /* search in input of ustensiles */ 
+  array.forEach(element=>{
+    const allUstensiles=element.ustensils;
+    allUstensiles.forEach(ele=>{
+      ustensiles.push((ele).toLowerCase());
+    })
+  });
+
+  ustensiles.forEach(element=>{
+        if(!uniqeUstensiles.includes(element)){
+          uniqeUstensiles.push(element);
+        }
+      });
+/* create links of dropdown items  */ 
+
+      let ustensilesHTML="";
+        uniqeUstensiles.forEach(element=>{
+          ustensilesHTML+=`<a href="#" class="dropdown-item ustensiles-item">${element}</a>`
+        });
+        document.querySelector(".ustensiles").innerHTML=ustensilesHTML;
+/* add event to items */
+        const item=document.querySelectorAll(".ustensiles-item");
+        item.forEach(ele=>{ele.addEventListener("click",()=>{advanceSearch(ele);})});
+
+  /* search in input of ustensiles */
+
     const input =document.querySelector(".ustensiles-input");
     const dropdownItems=document.querySelectorAll(".ustensiles-item");
     input.addEventListener("keyup",()=>{

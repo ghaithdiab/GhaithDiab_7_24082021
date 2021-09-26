@@ -108,7 +108,7 @@ form{
   margin-left: 15px;}
 .dropdown-content{
   z-index: 100;
-  position:absolute;
+  /* position:absolute; */
   display: none;
   background-color: #3282F7 ;
   width: 667px;
@@ -188,9 +188,21 @@ form{
   background-color: #ED6454;
 }
 /* Cart Style */
+#carts{
+  position: absolute;
+  z-index: -100;
+  top: 300px;
+  padding: 0 !important;
+}
+.recipe{
+  margin-bottom: 80px;
+  margin-top: 35px;
+  width: 380px;
+  height: 364px;
+}
 .cart{
   height: 364px;
-  margin-top: 100px;
+  /* margin-bottom: 50px; */
 }
 .photo{
   width: 100%;
@@ -200,7 +212,7 @@ form{
   border-top-right-radius: 5px;
 }
 .info{
-  height: 250px;
+  height: 270px;
   background-color: #E7E7E7;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius:5px ;

@@ -1,47 +1,54 @@
-import recipes from "./recipes.js";
-import searchRecipes from "./searchRecipes.js";
 import filterDropdown from "./searchInDropdown.js";
-
+import advanceSearch from "./AdvanceSearch.js";
 /*
-* filter appareils from recipes 
+/*
+* filter appareils from array or recipes or result of search 
 *
-* @return {void}  
+* Cearte dropdown item 
+*
+* call function search advance on event click (dropdown item)
+* 
+* call function search inside dropdown 
+*
+*@param{Array} recipes or result of search as an array 
+*
+*@return {void}
 */
-const filterAppareils=()=>{
-  /* array contain all appareils from recipes */
+const filterAppareils=(array)=>{
+  /* array contain all appareils from paramter array */
+
   const appareils=new Array();
+
    /* array contain uniqe value of appareils  (values with out reapt) */
+  
   const uniqeAppareils=new Array();
-/* if the user donsn't enter any word for search or charecter less from 3
-   get all appareils of recipes and push to appareils array */
-const searchInput=document.getElementById("searchBar");
-if((searchInput.value).length<3){
-  recipes.forEach(element=>{
-    appareils.push(element.appliance);
-  });
-  /* else get appareils from recipes of search result and push to appareils*/
-}else{
-  const searchResult=searchRecipes(searchInput.value);
-  searchResult.forEach(element=>{
+  array.forEach(element=>{
     appareils.push((element.appliance).toLowerCase());
-  })
-}
-  /* filter appareils and push to array uniqeAppareils */
+  });
+
   appareils.forEach(ele=>{
     if(!uniqeAppareils.includes(ele)){
       uniqeAppareils.push(ele);
     }
   });
-    /* create link of dropdown item  */ 
+  /* create links of dropdown items  */ 
+
   let appareilsHTML="";
   uniqeAppareils.forEach(element=>{
-    appareilsHTML+=`<a href="#" class="dropdown-item appareil-items">${element}`
+    appareilsHTML+=`<a href="#" class="dropdown-item item-appareil">${element}</a>`
   });
-  document.querySelector(".appareil").innerHTML=appareilsHTML;
+  const div=  document.querySelector(".appareil");
+  div.innerHTML=appareilsHTML;
 
-  /* search in input of Appareil */ 
+   /* add event to items */
+  
+  const item=document.querySelectorAll(".item-appareil");
+  item.forEach(ele=>{ele.addEventListener("click",()=>{advanceSearch(ele);})});
+
+/* search in input of appareils */ 
+
   const input =document.querySelector(".appareil-input");
-  const dropdownItems=document.querySelectorAll(".appareil-items");
+  const dropdownItems=document.querySelectorAll(".item-appareil");
   input.addEventListener("keyup",()=>{
   filterDropdown(input.value,dropdownItems);
 });

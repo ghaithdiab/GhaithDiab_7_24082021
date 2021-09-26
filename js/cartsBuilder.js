@@ -1,8 +1,15 @@
+/* 
+* build carts elements 
+*
+*@param{arr} array of recipes or search results or all recipes 
+*
+* @return {void}
+*/
 const cartsBuilder=(arr)=>{
   let carts="";
   arr.forEach(element=>{
     carts+=`
-      <div class="col-4">
+      <div class="col-lg-4 col-md-6 col-sm-12 recipe">
         <div class="cart">
           <div class="photo"></div>
           <div class="info">
