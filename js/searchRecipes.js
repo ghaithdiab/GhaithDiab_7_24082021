@@ -17,15 +17,13 @@ const searchRecipes=(txtSearchBar)=>{
 
 /* search start whene user entre more from 2 character*/
   if(txtSearchBar.length >= 3){
-    recipes.forEach(element=>{
-      /* search in name or ingredients or description of recipes*/
-      if(element.name.toLowerCase().includes(txtSearchBar)
-      ||element.ingredients.find(ele=>ele.ingredient.toLowerCase().includes(txtSearchBar))
-      ||element.description.toLowerCase().includes(txtSearchBar)){
-      /* add recipes to search result if it found */
-        searchResult.push(element);
+    for(let recipe=0;recipe<recipes.length;recipe++){
+      if(recipes[recipe].name.toLowerCase().includes(txtSearchBar)
+      ||recipes[recipe].ingredients.find(ele=>ele.ingredient.toLowerCase().includes(txtSearchBar))
+      ||recipes[recipe].description.toLowerCase().includes(txtSearchBar)){
+        searchResult.push(recipes[recipe]);
       }
-    });
+    }
     /* build html carts  */
     cartsBuilder(searchResult);
     return searchResult;
