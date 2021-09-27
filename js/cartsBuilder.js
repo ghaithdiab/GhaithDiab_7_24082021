@@ -1,9 +1,8 @@
-/* 
-* build carts elements 
-*
-*@param{arr} array of recipes or search results or all recipes 
-*
-* @return {void}
+/** 
+  * build carts elements 
+  *
+  *@param {array} recipes
+  *@return {void}
 */
 const cartsBuilder=(arr)=>{
   let carts="";

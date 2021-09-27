@@ -1,7 +1,8 @@
-/*
-* search in Dropdown 
-*
-*@return {void}
+/**
+  *search in Dropdown 
+  *@param {string} inputValue
+  *@param {NodeList}  dropdownItems
+  *@return {void}
 */
 const filterDropdown=(value,dropdownItems)=>{
   dropdownItems.forEach(element => {

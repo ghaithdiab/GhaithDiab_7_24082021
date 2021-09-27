@@ -1,34 +1,40 @@
 import recipes from "./recipes.js";
 import cartsBuilder from "./cartsBuilder.js";
-
-/*
-* search in recipes 
-*
-* @ param{txtsearchBar} value of input 
-*
-* @return {array} or searchRasult  or all recipes
+/** 
+  * search in recipes 
+  * @param {string} inputValue
+  * @return {array} recipes
 */
 const searchRecipes=(txtSearchBar)=>{
-  /* transfer letters to small */
+  // transfer letters to small 
   txtSearchBar=txtSearchBar.toLowerCase();
 
-/* create array contain result of search */ 
+//create array contain result of search  
   const searchResult=[];
 
-/* search start whene user entre more from 2 character*/
+//search start whene user entre more from 2 character
   if(txtSearchBar.length >= 3){
     recipes.forEach(element=>{
-      /* search in name or ingredients or description of recipes*/
+      //search in name or ingredients or description of recipes
       if(element.name.toLowerCase().includes(txtSearchBar)
       ||element.ingredients.find(ele=>ele.ingredient.toLowerCase().includes(txtSearchBar))
       ||element.description.toLowerCase().includes(txtSearchBar)){
-      /* add recipes to search result if it found */
+      // add recipes to search result if it found 
         searchResult.push(element);
       }
     });
-    /* build html carts  */
-    cartsBuilder(searchResult);
+// no result found 
+    if(searchResult.length==0){
+    let paragraph="";
+    paragraph+=`<p>« Aucune recette ne correspond à votre critère… vous pouvez
+    chercher « tarte aux pommes », « poisson », etc.</p>`;
+    document.getElementById("carts").innerHTML=paragraph;
     return searchResult;
+}else{
+ // build carts
+  cartsBuilder(searchResult);
+  return searchResult;
+}
   }else{
     cartsBuilder(recipes);
     return recipes;

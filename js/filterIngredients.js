@@ -1,24 +1,24 @@
 import filterDropdown from "./searchInDropdown.js";
 import advanceSearch from "./AdvanceSearch.js";
-/*
-* filter ingredients from array or recipes or result of search 
-*
-* Cearte dropdown item 
-*
-* call function search advance on event click (dropdown item)
-* 
-* call function search inside dropdown 
-*
-*@param{Array} recipes or result of search as an array 
-*
-*@return {void}
+/** 
+  * filter ingredients from array or recipes or result of search 
+  *
+  * Cearte dropdown item 
+  *
+  * call function search advance on event click (dropdown item)
+  * 
+  * call function search inside dropdown 
+  *
+  *@param {Array} recipes
+  *
+  *@return {void}
 */
 const filterIngredients=(array)=>{
-   /* array contain all ingredients from paramter array */
+   // array contain all ingredients from paramter array
   
     const ingredients=new Array();
   
-    /* array contain uniqe value of ingredients  (values with out reapt) */
+    //array contain uniqe value of ingredients  (values with out reapt) 
 
     const uniqeIngredients=new Array();
 
@@ -28,14 +28,14 @@ const filterIngredients=(array)=>{
         ingredients.push((ele.ingredient).toLowerCase());
       })
     });
-    /* filter ingredients and push to array uniqeIngredients */
+    //filter ingredients and push to array uniqeIngredients 
 
   ingredients.forEach(ele=>{
     if(!uniqeIngredients.includes(ele)){
       uniqeIngredients.push(ele);
       }
     })
-    /* create links of dropdown items  */ 
+    //create links of dropdown items 
 
   let ingredientHTML="";
   uniqeIngredients.forEach(element=>{
@@ -44,12 +44,12 @@ const filterIngredients=(array)=>{
   const div=  document.querySelector(".ingredient");
   div.innerHTML=ingredientHTML;
 
-   /* add event to items */
+   //add event to items
 
   const item=document.querySelectorAll(".item-ingredients");
   item.forEach(ele=>{ele.addEventListener("click",()=>{advanceSearch(ele);})});
 
-  /* search in input of ingredient */ 
+  //search in input of ingredient
 
   const input =document.querySelector(".ingredient-input");
   const dropdownItems=document.querySelectorAll(".item-ingredients");
