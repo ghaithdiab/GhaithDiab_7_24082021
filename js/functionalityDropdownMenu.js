@@ -1,7 +1,7 @@
-/*
-* open and close dropdown menu for Ingredients and Appareils and Ustensiles
-*
-*@return {void}
+/** 
+  * open and close dropdown menu for Ingredients and Appareils and Ustensiles
+  *
+  *@return {void}
 */
 const functionalityDropdownMenu=()=>{
   const btn=document.querySelectorAll(".dropdown-toggle");

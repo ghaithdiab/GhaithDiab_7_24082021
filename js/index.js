@@ -12,10 +12,17 @@ filterAppareils(recipes);
 filterUstensiles(recipes);
 cartsBuilder(recipes);
 
+// event Key Up
 const searchInput=document.querySelector("#searchBar");
 searchInput.addEventListener("keyup",()=>{
-  
   filterIngredients(searchRecipes(searchInput.value));
   filterAppareils(searchRecipes(searchInput.value));
   filterUstensiles(searchRecipes(searchInput.value));
 });
+//event click search btn
+const btnSearch=document.querySelector(".search");
+btnSearch.addEventListener("click",()=>{
+  filterIngredients(searchRecipes(searchInput.value));
+  filterAppareils(searchRecipes(searchInput.value));
+  filterUstensiles(searchRecipes(searchInput.value));
+})
