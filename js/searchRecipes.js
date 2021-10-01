@@ -8,7 +8,7 @@ import cartsBuilder from "./cartsBuilder.js";
 */
 const searchRecipes=(txtSearchBar)=>{
   // transfer letters to small 
-  txtSearchBar=txtSearchBar.toLowerCase();
+  txtSearchBar=txtSearchBar.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 
 // create array contain result of search
   const searchResult=[];
@@ -16,9 +16,9 @@ const searchRecipes=(txtSearchBar)=>{
 // search start whene user entre more from 2 character
   if(txtSearchBar.length >= 3){
     for(let recipe=0;recipe<recipes.length;recipe++){
-      if(recipes[recipe].name.toLowerCase().includes(txtSearchBar)
-      ||recipes[recipe].ingredients.find(ele=>ele.ingredient.toLowerCase().includes(txtSearchBar))
-      ||recipes[recipe].description.toLowerCase().includes(txtSearchBar)){
+      if(recipes[recipe].name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(txtSearchBar)
+      ||recipes[recipe].ingredients.find(ele=>ele.ingredient.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(txtSearchBar))
+      ||recipes[recipe].description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(txtSearchBar)){
         searchResult.push(recipes[recipe]);
       }
     }
